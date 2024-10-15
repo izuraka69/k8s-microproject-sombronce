@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-microproject-sombronce-ingress
+spec:
+  rules:
+  - host: sombronce
+    http:
+      paths:
+      - path: /httppath
+        pathType: Prefix
+        backend:
+          service:
+            name: httpsombronce
+            port:
+              number: 80
