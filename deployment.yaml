@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-microproject-sombronce-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-microproject-sombronce
+  template:
+    metadata:
+      labels:
+        app: k8s-microproject-sombronce
+    spec:
+      containers:
+      - name: k8s-microproject-sombronce
+        image: ghcr.io/c-diochon/k8s-microproject-sombronce
+        ports:
+        - containerPort: 3000
